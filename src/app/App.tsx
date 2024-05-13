@@ -59,10 +59,6 @@ export default function App() {
     }
 
     if (cubeRef.current) {
-      console.log(initialMousePosition);
-      console.log(clientX, clientY);
-      console.log(rotation);
-
       const dx = clientX - initialMousePosition.x;
       const dy = clientY - initialMousePosition.y;
 
