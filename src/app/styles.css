@@ -12,6 +12,15 @@ body {
     height: 100vh;
 }
 
+#app_container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
 .free-spin {
     animation: free-spin 60s infinite linear;
 }

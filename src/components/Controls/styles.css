@@ -1,0 +1,44 @@
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 ;
+}
+
+#controls > button {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+    margin-right: 1rem;
+    user-select: none;
+}
+
+#controls > button:hover {
+    background-color: #e8e8e8;
+}
+
+#controls > button:active {
+    background-color: #d8d8d8;
+}
+
+#controls > button:disabled {
+    background-color: #f8f8f8;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+#controls > button:disabled:hover {
+    background-color: #f8f8f8;
+}
+
+#controls > button:disabled:active {
+    background-color: #f8f8f8;
+}
+
+#controls > button:last-child {
+    margin-right: 0;
+}

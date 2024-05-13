@@ -1,21 +1,25 @@
-import React from "react";
-import { useRubixCube } from "../../state/cube_context";
-import { FACE } from "../../math/cube";
-import { rubix_cube_to_string } from "../../math/utils";
+import React from 'react';
+import {useRubixCube} from '../../state/cube_context';
+import {FACE} from '../../state/math/cube';
+import './styles.css';
 
+/**
+ * Controls component
+ * Renders the controls for the Rubix Cube that will
+ * allow the user to rotate the faces of the cube
+ *
+ * @return {JSX.Element} The JSX Controls component
+ */
 export default function Controls() {
+  const {rotateFace} = useRubixCube();
 
-    const {cube_size, cube, rotateFace} = useRubixCube();
-
-    return (
-        <div id="controls">
-            {Object.values(FACE).filter((face) => face != FACE.NA).map((face) => (
-                <button onClick={() => {
-                    rotateFace(face);
-                    console.log(rubix_cube_to_string(cube, cube_size));
-                    console.log(`Rotate ${face.toString()}`);
-                }}>Rotate {face.toString()}</button>
-            ))}
-        </div>
-    );
+  return (
+    <div id="controls">
+      {Object.values(FACE).filter((face) => face != FACE.NA).map((face) => (
+        <button key={'control-' + face} onClick={() => {
+          rotateFace(face);
+        }}>Rotate {face.toString()}</button>
+      ))}
+    </div>
+  );
 }
