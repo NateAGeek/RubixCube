@@ -19,9 +19,17 @@ export default function App() {
   const [initialMousePosition, setInitialMousePosition] = useState({x: 0, y: 0});
 
   const onMouseDown = (event) => {
+    let clientX = 0;
+    let clientY = 0;
+    if (event.type === 'touchstart') {
+      clientX = event.touches[0].clientX;
+      clientY = event.touches[0].clientY;
+    } else {
+      clientX = event.clientX;
+      clientY = event.clientY;
+    }
     setIsDragging(true);
-    rotateCube(event);
-    setInitialMousePosition({x: event.clientX, y: event.clientY});
+    setInitialMousePosition({x: clientX ? clientX : 0, y: clientY ? clientY : 0});
   };
 
   const onMouseMove = (event) => {
@@ -39,15 +47,31 @@ export default function App() {
   };
 
   const rotateCube = (event) => {
+    let clientX = 0;
+    let clientY = 0;
+
+    if (event.type === 'touchmove' || event.type === 'touchstart') {
+      clientX = event.touches[0].clientX;
+      clientY = event.touches[0].clientY;
+    } else {
+      clientX = event.clientX;
+      clientY = event.clientY;
+    }
+
     if (cubeRef.current) {
-      const dx = event.clientX - initialMousePosition.x;
-      const dy = event.clientY - initialMousePosition.y;
+      console.log(initialMousePosition);
+      console.log(clientX, clientY);
+      console.log(rotation);
+
+      const dx = clientX - initialMousePosition.x;
+      const dy = clientY - initialMousePosition.y;
 
       // Update the rotation based on the difference in position
       const newRotation = {
         x: rotation.x - dy * 0.005, // Scaling factor for smoother rotation
         y: rotation.y + dx * 0.005,
       };
+      console.log(newRotation);
 
       cubeRef.current.style.transform = `translate(-50%, -50%) rotateX(${newRotation.x}deg) rotateY(${newRotation.y}deg)`;
       setRotation(newRotation);
@@ -58,6 +82,11 @@ export default function App() {
     <RubixCubeProvider>
       <div
         id="app_container"
+        onTouchStart={onMouseDown}
+        onTouchMove={onMouseMove}
+        onTouchEnd={onMouseUp}
+        onTouchCancel={onMouseLeave}
+
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}

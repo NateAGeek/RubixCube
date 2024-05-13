@@ -1,7 +1,8 @@
 
 #controls {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 1rem 0 ;
 }
 
@@ -13,7 +14,6 @@
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease-out;
-    margin-right: 1rem;
     user-select: none;
 }
 
@@ -37,8 +37,4 @@
 
 #controls > button:disabled:active {
     background-color: #f8f8f8;
-}
-
-#controls > button:last-child {
-    margin-right: 0;
 }
