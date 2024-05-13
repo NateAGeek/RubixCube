@@ -1,0 +1,26 @@
+:root {
+    --cubeSize: 256px;
+}
+
+body {
+    /* Nice light blue background */
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.free-spin {
+    animation: free-spin 60s infinite linear;
+}
+
+@keyframes free-spin {
+    0% {
+        transform: translate(-50%, -50%) rotate3d(1, 1, 1, 0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate3d(1, 1, 1, 360deg);
+    }
+}

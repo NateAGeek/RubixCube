@@ -1,0 +1,37 @@
+.sub_face {
+    background-color: black;
+    padding: 6px;
+}
+
+.sub_face__sticker {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 8px;
+}
+
+.F {
+    background-color: green;
+}
+
+.B {
+  background-color: #00f;
+}
+
+.R {
+  background-color: red;
+}
+
+.L {
+  background-color: orange;
+}
+
+.U {
+  background-color: #fff;
+}
+
+.D {
+  background-color: #ff0;
+}

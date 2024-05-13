@@ -1,0 +1,33 @@
+.face {
+  position: absolute;
+  width: var(--cubeSize);
+  height: var(--cubeSize);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border-radius: 8px;
+}
+
+#face_F {
+  transform: translateZ(calc(var(--cubeSize) / 2));
+}
+
+#face_B {
+  transform: rotateY(180deg) translateZ(calc(var(--cubeSize) / 2));
+}
+
+#face_R {
+  transform: rotateY(90deg) translateZ(calc(var(--cubeSize) / 2));
+}
+
+#face_L {
+  transform: rotateY(-90deg) translateZ(calc(var(--cubeSize) / 2));
+}
+
+#face_U {
+  transform: rotateX(90deg) translateZ(calc(var(--cubeSize) / 2));
+}
+
+#face_D {
+  transform: rotateX(-90deg) translateZ(calc(var(--cubeSize) / 2));
+}

@@ -1,0 +1,10 @@
+#cube {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--cubeSize);  /* Ensure you set this variable in your CSS or inline style */
+    height: var(--cubeSize); /* Ensure you set this variable in your CSS or inline style */
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out; /* Smooth out the transitions */
+}
